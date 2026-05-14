@@ -1,6 +1,42 @@
-import { useState, useEffect } from "react";
+{
+  "name": "masv-website",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  },
+  "browserslist": {
+    "production": [">0.2%", "not dead"],
+    "development": ["last 1 chrome version"]
+  }
+}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="description" content="Men Against Sexual Violence (MASV) - 501c3 Nonprofit Organization" />
+    <title>MASV - Men Against Sexual Violence</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-const founderPhoto = "/mnt/user-data/uploads/KW501310419.jpg";
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);import { useState, useEffect } from "react";
 
 const resources = [
   { name: "RAINN", url: "https://www.rainn.org", desc: "Nation's largest anti-sexual violence organization. 24/7 hotline: 1-800-656-4673" },
@@ -21,7 +57,7 @@ const faqData = [
   { q: "Is MASV a registered nonprofit?", a: "Yes. Men Against Sexual Violence (MASV) is a registered 501(c)3 nonprofit organization." },
 ];
 
-export default function MASVWebsite() {
+export default function App() {
   const [page, setPage] = useState("home");
   const [menuOpen, setMenuOpen] = useState(false);
   const [faqOpen, setFaqOpen] = useState(null);
@@ -289,7 +325,7 @@ function FounderPage() {
       </div>
       <div style={styles.founderLayout}>
         <div style={styles.founderPhotoWrap}>
-          <img src={founderPhoto} alt="MASV Founder" style={styles.founderPhoto} />
+          <img src="/founder.jpg" alt="MASV Founder" style={styles.founderPhoto} />
           <div style={styles.founderBadge}>Founder & Executive Director</div>
         </div>
         <div style={styles.founderBio}>
@@ -531,7 +567,7 @@ const styles = {
   navLink: { background: "none", border: "none", color: "#aaa", cursor: "pointer", fontSize: 12, letterSpacing: 1, textTransform: "uppercase", padding: "6px 10px", transition: "color 0.2s", fontFamily: "'Georgia', serif" },
   navLinkActive: { color: "#1a4fbb" },
   donateBtn: { background: "#1a4fbb", color: "#fff", border: "none", borderRadius: 4, padding: "9px 20px", cursor: "pointer", fontWeight: 700, fontSize: 13, letterSpacing: 1, fontFamily: "'Georgia', serif", textDecoration: "none" },
-  hamburger: { display: "none", background: "none", border: "none", color: "#f0ece4", cursor: "pointer" },
+  hamburger: { display: "block", background: "none", border: "none", color: "#f0ece4", cursor: "pointer" },
   mobileMenu: { padding: "12px 24px 20px", borderTop: "1px solid #1e1e1e", display: "flex", flexDirection: "column", gap: 4 },
   mobileLink: { background: "none", border: "none", color: "#ccc", cursor: "pointer", padding: "10px 0", fontSize: 15, textAlign: "left", fontFamily: "'Georgia', serif" },
   main: { minHeight: "calc(100vh - 64px)" },
@@ -557,8 +593,8 @@ const styles = {
   cardTitle: { fontSize: 20, fontWeight: 700, color: "#f0ece4", marginBottom: 10 },
   cardDesc: { color: "#888", lineHeight: 1.7, fontSize: 14 },
   igSection: { background: "#111", borderTop: "1px solid #1e1e1e", borderBottom: "1px solid #1e1e1e", padding: "24px", textAlign: "center" },
-  igCallout: { display: "inline-flex", alignItems: "center", color: "#f0ece4", textDecoration: "none", fontSize: 16, background: "linear-gradient(45deg,#1a4fbb,#3a7bd5,#5b9bd5)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" },
-  igBtn: { display: "inline-flex", alignItems: "center", background: "linear-gradient(45deg,#1a4fbb,#3a7bd5,#5b9bd5)", color: "#fff", border: "none", borderRadius: 4, padding: "10px 20px", cursor: "pointer", fontWeight: 700, fontSize: 14, textDecoration: "none", marginTop: 12, WebkitTextFillColor: "#fff" },
+  igCallout: { display: "inline-flex", alignItems: "center", color: "#1a4fbb", textDecoration: "none", fontSize: 16 },
+  igBtn: { display: "inline-flex", alignItems: "center", background: "linear-gradient(45deg,#1a4fbb,#3a7bd5,#5b9bd5)", color: "#fff", border: "none", borderRadius: 4, padding: "10px 20px", cursor: "pointer", fontWeight: 700, fontSize: 14, textDecoration: "none", marginTop: 12 },
   ctaSection: { background: "linear-gradient(135deg, #030d1a, #0a0a0a)", textAlign: "center", padding: "80px 24px", borderTop: "1px solid #1e1e1e" },
   ctaTitle: { fontSize: 40, fontWeight: 900, marginBottom: 16, color: "#f0ece4" },
   ctaSub: { color: "#888", fontSize: 16, maxWidth: 560, margin: "0 auto 40px", lineHeight: 1.7 },
